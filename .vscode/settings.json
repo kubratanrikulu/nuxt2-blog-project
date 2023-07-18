@@ -1,3 +1,6 @@
 {
-  "conventionalCommits.scopes": ["nuxt2-blog/src/navbar"]
+  "conventionalCommits.scopes": [
+    "nuxt2-blog/src/navbar",
+    "nuxt2-blog/src/readingList"
+  ]
 }
