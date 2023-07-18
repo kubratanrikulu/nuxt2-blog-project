@@ -20,7 +20,6 @@ export const useBlogStore = defineStore('blog', {
         let url = 'https://64b268c238e74e386d551327.mockapi.io/api/blogs'
         searchQuery ? (url = url + '?title=' + searchQuery) : null
         const { data } = await axios.get(url)
-        // data.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
         this.SET_BLOGS(data.reverse())
       } catch (error) {
         alert(error)
