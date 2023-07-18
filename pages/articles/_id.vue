@@ -1,61 +1,67 @@
 <template>
-  <div class="card p-5">
-    <div class="card-header space-x-5">
-      <img :src="blog.avatar" alt="" class="w-4/12 mb-5" />
-      <div>
-        <h1 class="font-bold text-4xl text-[#454360] tracking-wide capitalize">
-          {{ blog.title }}
-        </h1>
-        <div class="flex space-x-3 text-md">
-          <time
-            :date-time="new Date(blog.createdAt).toISOString()"
-            class="text-sm subpixel-antialiased text-zinc-400"
+  <div class="container mx-auto !max-w-2xl h-full p-5">
+    <div class="flex flex-col gap-4 w-full">
+      <h1 class="font-bold text-5xl text-zinc-900 capitalize">
+        {{ blog.title }}
+      </h1>
+
+      <div class="flex items-center justify-end space-x-3 text-md">
+        <time
+          :date-time="new Date(blog.createdAt).toISOString()"
+          class="text-sm subpixel-antialiased text-zinc-400"
+        >
+          {{ formatDate(blog.createdAt) }}
+        </time>
+        <span class="flex items-center justify-center">·</span>
+        <span
+          class="flex gap-1 items-center text-sm subpixel-antialiased text-zinc-400"
+        >
+          <i class="fa-solid fa-highlighter text-rose-500/80"></i>
+          {{ blog.readingNumber }}
+        </span>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <img :src="blog.personImg" alt="" class="rounded-full w-11 h-11" />
+          <div>
+            <p class="font-bold text-zinc-900">{{ blog.name }}</p>
+            <p class="text-gray-500 text-sm italic">{{ blog.personJob }}</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button
+            class="transition-colors ease-in-out hover:bg-rose-500/80 bg-rose-500 text-zinc-50 py-1.5 px-3 rounded text-sm inline-flex items-baseline justify-center gap-2"
+            @click="deleteBlog"
           >
-            {{ formatDate(blog.createdAt) }}
-          </time>
-          <span class="flex items-center justify-center">·</span>
-          <span
-            class="flex gap-1 items-center text-sm subpixel-antialiased text-zinc-400"
+            <i class="fa-regular fa-trash-can text-sm"></i>
+            <span class="inline-flex items-center justify-center">Delete</span>
+          </button>
+          <button
+            class="transition-colors ease-in-out hover:bg-rose-500/80 bg-rose-500 text-zinc-50 py-1.5 px-3 rounded text-sm inline-flex items-baseline justify-center gap-2"
+            @click="openEditModal"
           >
-            <i class="fa-solid fa-highlighter text-rose-500/80"></i>
-            {{ blog.readingNumber }}
-          </span>
+            <i class="fa-solid fa-pencil text-sm"></i>
+            <span class="inline-flex items-center justify-center">Edit</span>
+          </button>
         </div>
       </div>
-    </div>
 
-    <p class="text-[#596172] leading-8 mb-10">{{ blog.content }}</p>
-    <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <img :src="blog.personImg" alt="" class="rounded-full w-12 h-12" />
-        <div>
-          <p class="font-bold text-lg text-[#454360]">{{ blog.name }}</p>
-          <p class="text-[#596172] italic">{{ blog.personJob }}</p>
-        </div>
+      <div class="card-header space-x-5">
+        <img :src="blog.avatar" alt="" class="w-full my-5" />
+        <div></div>
       </div>
-      <div>
-        <button
-          class="transition-colors ease-in-out hover:bg-rose-500/80 bg-rose-500 text-zinc-50 py-2 px-3 rounded-full text-sm"
-          @click="deleteBlog"
-        >
-          Delete
-        </button>
-        <button
-          class="transition-colors ease-in-out hover:bg-rose-500/80 bg-rose-500 text-zinc-50 py-2 px-3 rounded-full text-sm"
-          @click="openEditModal"
-        >
-          Edit
-        </button>
-      </div>
-    </div>
 
-    <ArticleEditModal
-      v-if="isEditModalOpen"
-      :blog="blog"
-      :editedBlog="editedBlog"
-      @saveChanges="saveChanges"
-      @cancelEditing="closeEditModal"
-    />
+      <p class="text-[#596172] leading-8 mb-10">{{ blog.content }}</p>
+
+      <ArticleEditModal
+        v-if="isEditModalOpen"
+        :blog="blog"
+        :editedBlog="editedBlog"
+        @saveChanges="saveChanges"
+        @cancelEditing="closeEditModal"
+      />
+    </div>
   </div>
 </template>
 
@@ -127,9 +133,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.card {
-  box-shadow: 0 3px 12px -1px rgba(7, 10, 25, 0.1),
-    0 22px 27px -30px rgba(7, 10, 25, 0.1);
-}
-</style>
+<style scoped></style>
