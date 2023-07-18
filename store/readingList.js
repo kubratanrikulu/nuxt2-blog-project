@@ -18,13 +18,9 @@ export const useReadingListStore = defineStore('readingList', {
       this.removeFromReadingList(blogId)
     },
     removeFromReadingList(blogId) {
-      console.log('removeFromReadingList readingList', this.readingList)
-
       this.readingList = this.readingList.filter((blog) => {
         return blog.id !== blogId
       })
-      console.log('removeFromReadingList readingList', this.readingList)
-
       this.saveReadingList()
     },
     fetchReadingList() {

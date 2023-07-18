@@ -16,6 +16,7 @@
           type="text"
           class="border border-zinc-200 rounded-md px-2 py-1 w-full bg-zinc-100 focus:bg-zinc-50 focus-visible:!outline-none outline-none transition ease-in-out"
           placeholder="Search.."
+          v-model="searchQuery"
         />
       </div>
       <menu-links />
@@ -25,16 +26,30 @@
 <script>
 import MenuLinks from './MenuLinks.vue'
 import SocialMediaIcon from './SocialMediaIcon.vue'
+import { useBlogStore } from '~/store/blogStore'
 export default {
   name: 'NavbarMenu',
   components: { MenuLinks, SocialMediaIcon },
   data() {
     return {
+      timeout: 0,
+      searchQuery: '',
     }
+  },
+  watch: {
+    searchQuery(val) {
+      if (val.length >= 3 || val === '') this.getSearchFetch()
+    },
   },
   methods: {
     redirectToHome() {
       this.$router.push('/')
+    },
+    getSearchFetch() {
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => {
+        useBlogStore().fetchBlogs(this.searchQuery)
+      }, 500)
     },
   },
 }
