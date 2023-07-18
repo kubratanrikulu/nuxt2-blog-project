@@ -1,0 +1,28 @@
+{
+  "name": "nuxt2-blog-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:prettier",
+    "lintfix": "prettier --write --list-different ."
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "core-js": "^3.25.3",
+    "nuxt": "^2.15.8",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^5.3.3",
+    "eslint-config-prettier": "^8.5.0",
+    "postcss": "^8.4.17",
+    "prettier": "^2.7.1"
+  }
+}
