@@ -14,7 +14,7 @@
       <div class="searchbar max-w-md flex justify-center items-center grow">
         <input
           type="text"
-          class="border border-zinc-200 rounded-md px-2 py-1 w-full bg-zinc-100 focus:bg-zinc-50 focus-visible:!outline-none outline-none transition ease-in-out"
+          class="border border-zinc-200 rounded-full px-2 py-1 w-full bg-zinc-100 focus:bg-zinc-50 focus-visible:!outline-none outline-none transition ease-in-out"
           placeholder="Search.."
           v-model="searchQuery"
         />
