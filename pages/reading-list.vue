@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto p-4 favorite-films">
+  <div class="container mx-auto p-4 reading-list">
     <h2 class="font-bold text-4xl tracking-wide text-[#454360]">
       Reading List
     </h2>
@@ -9,8 +9,8 @@
       </ul>
     </div>
     <div v-else>
-      <p class="text-white text-md">
-        You haven't added any favorite movies yet
+      <p class="text-md">
+        You haven't added any favorite article yet
       </p>
     </div>
   </div>
@@ -47,4 +47,7 @@ export default {
 </script>
 
 <style scoped>
+.reading-list {
+  min-height: 100vh;
+}
 </style>
