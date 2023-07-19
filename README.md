@@ -1,5 +1,18 @@
 # nuxt2-blog-project
 
+Bu proje, Nuxt 2 kullanılarak oluşturulmuş bir "Blog" uygulamasıdır. Bu uygulama, makaleleri listeleyebilir, fmakale detaylarına erişebilir, makaleleri okuma listesine ekleyebilir ve çıkartabilirsiniz. Yeni makale ekleyebilir, silebilir ve makaleyi düzenleyebilirsiniz. State yönetimi için Pinia kullanılmıştır ve API istekleri için Axios kullanılmıştır. 
+
+## Nuxt2 Blog Demo Link
+Bu projenin [canlı haline ] ([[https://example.com](https://vue-movie-project.vercel.app/#/](https://startling-hummingbird-afe0d6.netlify.app/))) göz atabilirsiniz
+
+## Tech
+- Nuxt2
+- Pinia
+- axios
+- Tailwind
+- mockApi
+- dateFns
+
 ## Build Setup
 
 ```bash
